@@ -6821,7 +6821,6 @@ void xLightsFrame::OnMenuItem_CleanupFileLocationsSelected(wxCommandEvent& event
         SetStatusText("Cleaning up file locations.");
         CleanupSequenceFileLocations();
         SetStatusText("Cleaning up file locations ... DONE.");
-        wxBell();
     } else {
         wxMessageBox("You must have a sequence opened in order to run Cleanup File Locations.", "Missing Sequence", wxOK);
     }
