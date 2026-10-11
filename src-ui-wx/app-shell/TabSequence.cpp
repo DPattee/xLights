@@ -737,6 +737,7 @@ void xLightsFrame::LoadEffectsFile()
 
     // load the perspectives
     CheckForAndCreateDefaultPerpective();
+    ApplyPerComputerPerspectiveSelection();
     perspectivePanel->SetPerspectives(this);
     LoadPerspectivesMenu();
 
@@ -805,7 +806,7 @@ void xLightsFrame::OnMenuItemLoadPerspectiveSelected(wxCommandEvent& event)
     Notebook1->SetSelection(Notebook1->GetPageIndex(PanelSequencer));
     for (size_t i = 0; i < 10; ++i) {
         if (perspectives[i].id == event.GetId()) {
-            DoLoadPerspective(perspectives[i].p);
+            DoLoadPerspective(perspectives[i].p, true);
             return;
         }
     }
