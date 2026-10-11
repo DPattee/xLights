@@ -12,6 +12,8 @@ XLIGHTS/NUTCRACKER RELEASE NOTES
 ---------------------------------
 2026.19  October ??, 2026
 
+    -enh (DPattee)               The perspective loaded on a computer is remembered there, so a desktop and a laptop
+                                 that share a show folder each reopen on their own perspective
     -bug (DPattee)               Layout: Add Object is available on startup when the layout is already in 3D on the Default preview
     -bug (derwin12)              Moving Head Adv: Position Zone colors and the zone indicator no longer show in the preview when
                                  Enable Position Zones is off; the indicator ring is now sized to the model base

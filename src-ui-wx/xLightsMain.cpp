@@ -1119,7 +1119,7 @@ xLightsFrame::xLightsFrame(wxWindow* parent, int ab, wxWindowID id, bool renderO
     MenuItemPerspectives->Append(MenuItemViewSaveAsPerspective);
     MenuItemLoadEditPerspective = new wxMenuItem(MenuItemPerspectives, ID_MENUITEM_LOAD_PERSPECTIVE, _("Edit/Load"), wxEmptyString, wxITEM_NORMAL);
     MenuItemPerspectives->Append(MenuItemLoadEditPerspective);
-    MenuItem_PerspectiveAutosave = new wxMenuItem(MenuItemPerspectives, ID_MNU_PERSPECTIVES_AUTOSAVE, _("Auto Save"), _("Save the current perspective between sessions independent of the show directory."), wxITEM_CHECK);
+    MenuItem_PerspectiveAutosave = new wxMenuItem(MenuItemPerspectives, ID_MNU_PERSPECTIVES_AUTOSAVE, _("Auto Save"), _("Save the window layout on this computer between sessions. A perspective loaded on this computer opens instead."), wxITEM_CHECK);
     MenuItemPerspectives->Append(MenuItem_PerspectiveAutosave);
     MenuItemPerspectives->AppendSeparator();
     MenuView->Append(ID_MENUITEM7, _("Perspectives"), MenuItemPerspectives, wxEmptyString);
