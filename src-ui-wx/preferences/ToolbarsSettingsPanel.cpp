@@ -13,6 +13,7 @@
 #include <wx/button.h>
 #include <wx/dataview.h>
 #include <wx/preferences.h>
+#include <wx/renderer.h>
 #include <wx/sizer.h>
 #include <wx/stattext.h>
 
@@ -24,6 +25,18 @@ namespace {
     constexpr unsigned int COL_VISIBLE = 0;
     constexpr unsigned int COL_NAME = 1;
     constexpr int EFFECT_ICON_SIZE = 16;
+
+    // Wide enough for a real checkbox, plus the data view's cell inset, so the
+    // glyph is not clipped down to a sliver of a checkbox.
+    int VisibleToggleColumnWidth(wxWindow* win)
+    {
+        const wxSize box = wxRendererNative::Get().GetCheckBoxSize(win);
+        int width = box.GetWidth();
+        if (width < win->FromDIP(16)) {
+            width = win->FromDIP(16);
+        }
+        return width + win->FromDIP(8);
+    }
 
     wxVariant MakeIconTextValue(xLightsFrame* frame, const std::string& name)
     {
@@ -50,8 +63,21 @@ ToolbarsSettingsPanel::ToolbarsSettingsPanel(wxWindow* parent, xLightsFrame* f, 
                      0, wxLEFT | wxRIGHT | wxBOTTOM, 6);
 
     _effectsToolbarList = new wxDataViewListCtrl(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxDV_NO_HEADER | wxDV_SINGLE);
-    _effectsToolbarList->AppendToggleColumn(_("Visible"), wxDATAVIEW_CELL_ACTIVATABLE, FromDIP(30), wxALIGN_CENTER);
-    _effectsToolbarList->AppendIconTextColumn(_("Effect"));
+    // The first column is the outline/expander column. That gutter is taken
+    // out of the checkbox cell, and the native toggle is then scaled into
+    // whatever width is left — a thin sliver instead of a normal checkbox.
+    // This is a flat list, so put the gutter on the name column at zero indent.
+    _effectsToolbarList->SetIndent(0);
+    const int toggleWidth = VisibleToggleColumnWidth(_effectsToolbarList);
+    wxDataViewColumn* visibleCol = _effectsToolbarList->AppendToggleColumn(
+        _("Visible"), wxDATAVIEW_CELL_ACTIVATABLE, toggleWidth, wxALIGN_CENTER);
+    if (visibleCol != nullptr) {
+        visibleCol->SetMinWidth(toggleWidth);
+    }
+    wxDataViewColumn* nameCol = _effectsToolbarList->AppendIconTextColumn(_("Effect"));
+    if (nameCol != nullptr) {
+        _effectsToolbarList->SetExpanderColumn(nameCol);
+    }
     _effectsToolbarList->Bind(wxEVT_DATAVIEW_ITEM_VALUE_CHANGED, &ToolbarsSettingsPanel::OnToggleChanged, this);
     _effectsToolbarList->Bind(wxEVT_DATAVIEW_SELECTION_CHANGED, &ToolbarsSettingsPanel::OnSelectionChanged, this);
     // Tall enough to show at least 8 rows without scrolling immediately.
