@@ -29,6 +29,7 @@ class EffectsGridSettingsPanel: public wxPanel
 		//(*Declarations(EffectsGridSettingsPanel)
 		wxCheckBox* BellOnRenderCompletion;
 		wxCheckBox* ColorUpdateWarnCheckBox;
+		wxCheckBox* EffectWheelCheckBox;
 		wxCheckBox* GroupEffectIndicator;
 		wxCheckBox* IconBackgroundsCheckBox;
 		wxCheckBox* NodeValuesCheckBox;
@@ -61,6 +62,7 @@ class EffectsGridSettingsPanel: public wxPanel
 		static const wxWindowID ID_CHECKBOX5;
 		static const wxWindowID ID_CHECKBOX8;
 		static const wxWindowID ID_CHECKBOX9;
+		static const wxWindowID ID_CHECKBOX10;
 		static const wxWindowID ID_STATICTEXT_PASTE_AS;
 		static const wxWindowID ID_CHOICE_PASTE_AS;
 		//*)
@@ -77,6 +79,7 @@ class EffectsGridSettingsPanel: public wxPanel
 		void OnGridSpacingChoiceSelect(wxCommandEvent& event);
 		void OnTransistionMarksCheckBoxClick(wxCommandEvent& event);
 		void OnDoubleClickChoiceSelect(wxCommandEvent& event);
+		void OnEffectWheelCheckBoxClick(wxCommandEvent& event);
 		void OnColorUpdateWarnCheckBoxClick(wxCommandEvent& event);
 		void OnGroupEffectIndicatorClick(wxCommandEvent& event);
 		void OnPaint(wxPaintEvent& event);

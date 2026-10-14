@@ -1952,6 +1952,10 @@ xLightsFrame::xLightsFrame(wxWindow* parent, int ab, wxWindowID id, bool renderO
     SetTimingPlayOnDClick(mTimingPlayOnDClick);
     spdlog::debug("Timing Play on DClick: {}.", toStr(mTimingPlayOnDClick));
 
+    config->Read("xLightsEffectWheelOnDClick", &mEffectWheelOnDClick, true);
+    SetEffectWheelOnDClick(mEffectWheelOnDClick);
+    spdlog::debug("Effect wheel on double-click: {}.", toStr(mEffectWheelOnDClick));
+
     config->Read("xLightsGridNodeValues", &mGridNodeValues, true);
     SetGridNodeValues(mGridNodeValues);
     spdlog::debug("Grid node values: {}.", toStr(mGridNodeValues));
@@ -2288,6 +2292,7 @@ xLightsFrame::~xLightsFrame()
     config->Write("xLightsShowAlternateTimingFormat", mShowAlternateTimingFormat);
     config->Write("xLightsGroupEffectIndicator", mShowGroupEffectIndicator);
     config->Write("xLightsTimingPlayOnDClick", mTimingPlayOnDClick);
+    config->Write("xLightsEffectWheelOnDClick", mEffectWheelOnDClick);
     config->Write("xLightsGridNodeValues", mGridNodeValues);
     config->Write("xLightsRenderOnSave", mRenderOnSave);
     config->Write("xLightsSaveFseqOnSave", mSaveFseqOnSave);
@@ -6914,6 +6919,12 @@ void xLightsFrame::SetTimingPlayOnDClick(bool b)
 {
     mTimingPlayOnDClick = b;
     mainSequencer->PanelEffectGrid->SetTimingClickPlayMode(mTimingPlayOnDClick);
+}
+
+void xLightsFrame::SetEffectWheelOnDClick(bool b)
+{
+    mEffectWheelOnDClick = b;
+    mainSequencer->PanelEffectGrid->SetEffectWheelOnDClick(mEffectWheelOnDClick);
 }
 
 bool xLightsFrame::IsDrawRamps()

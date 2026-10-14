@@ -140,6 +140,27 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
+				<object class="wxCheckBox" name="ID_CHECKBOX10" variable="EffectWheelCheckBox" member="yes">
+					<label>Effect Wheel on Double-Click</label>
+					<checked>1</checked>
+					<tooltip>Double-click an empty cell to pick an effect from a radial menu of keybound effects</tooltip>
+					<handler function="OnEffectWheelCheckBoxClick" entry="EVT_CHECKBOX" />
+				</object>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="spacer">
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="spacer">
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
 				<object class="wxCheckBox" name="ID_CHECKBOX4" variable="SmallWaveformCheckBox" member="yes">
 					<label>Small Waveform</label>
 					<tooltip>Reduce the vertical size of the waveform</tooltip>
