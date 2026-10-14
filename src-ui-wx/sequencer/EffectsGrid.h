@@ -112,6 +112,7 @@ public:
     bool IsDroppingBetweenTimingMarks() const;
     void ForceRefresh();
     void SetTimingClickPlayMode(bool mode) {mTimingPlayOnDClick = mode;}
+    void SetEffectWheelOnDClick(bool mode) {mEffectWheelOnDClick = mode;}
     void SetEffectIconBackground(bool mode) {mGridIconBackgrounds = mode;}
     void SetEffectNodeValues(bool mode) {mGridNodeValues = mode;}
     void MoveSelectedEffectUp(bool shift);
@@ -324,6 +325,7 @@ private:
     bool mIsDrawing = false;
     bool mGridIconBackgrounds;
     bool mTimingPlayOnDClick;
+    bool mEffectWheelOnDClick = true;
     bool mGridNodeValues = true;
     bool _doubleClick = false;
 

@@ -1305,6 +1305,9 @@ public:
     bool TimingPlayOnDClick() const { return mTimingPlayOnDClick;}
     void SetTimingPlayOnDClick(bool b);
 
+    bool EffectWheelOnDClick() const { return mEffectWheelOnDClick; }
+    void SetEffectWheelOnDClick(bool b);
+
     int ToolIconSize() const { return mIconSize; }
     void SetToolIconSize(int size);
 
@@ -1822,6 +1825,7 @@ private:
     bool mShowAlternateTimingFormat = false;
     bool mShowGroupEffectIndicator = true;
     bool mTimingPlayOnDClick;
+    bool mEffectWheelOnDClick = true;
     bool mGridNodeValues;
     int mEffectAssistMode = 0;
     int tempEffectAssistMode = 0;

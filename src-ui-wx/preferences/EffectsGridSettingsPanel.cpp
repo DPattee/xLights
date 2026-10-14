@@ -35,6 +35,7 @@ const wxWindowID EffectsGridSettingsPanel::ID_CHECKBOX6 = wxNewId();
 const wxWindowID EffectsGridSettingsPanel::ID_CHECKBOX5 = wxNewId();
 const wxWindowID EffectsGridSettingsPanel::ID_CHECKBOX8 = wxNewId();
 const wxWindowID EffectsGridSettingsPanel::ID_CHECKBOX9 = wxNewId();
+const wxWindowID EffectsGridSettingsPanel::ID_CHECKBOX10 = wxNewId();
 const wxWindowID EffectsGridSettingsPanel::ID_STATICTEXT_PASTE_AS = wxNewId();
 const wxWindowID EffectsGridSettingsPanel::ID_CHOICE_PASTE_AS = wxNewId();
 //*)
@@ -92,6 +93,12 @@ EffectsGridSettingsPanel::EffectsGridSettingsPanel(wxWindow* parent, xLightsFram
 	DoubleClickChoice->SetSelection( DoubleClickChoice->Append(_("Play Timing")) );
 	GridSizer1->Add(DoubleClickChoice, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	GridSizer1->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	EffectWheelCheckBox = new wxCheckBox(this, ID_CHECKBOX10, _("Effect Wheel on Double-Click"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX10"));
+	EffectWheelCheckBox->SetValue(true);
+	EffectWheelCheckBox->SetToolTip(_("Double-click an empty cell to pick an effect from a radial menu of keybound effects"));
+	GridSizer1->Add(EffectWheelCheckBox, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+	GridSizer1->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	GridSizer1->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	SmallWaveformCheckBox = new wxCheckBox(this, ID_CHECKBOX4, _("Small Waveform"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX4"));
 	SmallWaveformCheckBox->SetValue(false);
 	SmallWaveformCheckBox->SetToolTip(_("Reduce the vertical size of the waveform"));
@@ -136,6 +143,7 @@ EffectsGridSettingsPanel::EffectsGridSettingsPanel(wxWindow* parent, xLightsFram
 	Connect(ID_CHECKBOX7, wxEVT_COMMAND_CHECKBOX_CLICKED, (wxObjectEventFunction)&EffectsGridSettingsPanel::OnGroupEffectIndicatorClick);
 	Connect(ID_CHECKBOX3, wxEVT_COMMAND_CHECKBOX_CLICKED, (wxObjectEventFunction)&EffectsGridSettingsPanel::OnSnapToTimingCheckBoxClick);
 	Connect(ID_CHOICE2, wxEVT_COMMAND_CHOICE_SELECTED, (wxObjectEventFunction)&EffectsGridSettingsPanel::OnDoubleClickChoiceSelect);
+	Connect(ID_CHECKBOX10, wxEVT_COMMAND_CHECKBOX_CLICKED, (wxObjectEventFunction)&EffectsGridSettingsPanel::OnEffectWheelCheckBoxClick);
 	Connect(ID_CHECKBOX4, wxEVT_COMMAND_CHECKBOX_CLICKED, (wxObjectEventFunction)&EffectsGridSettingsPanel::OnSmallWaveformCheckBoxClick);
 	Connect(ID_CHECKBOX6, wxEVT_COMMAND_CHECKBOX_CLICKED, (wxObjectEventFunction)&EffectsGridSettingsPanel::OnTransistionMarksCheckBoxClick);
 	Connect(ID_CHECKBOX5, wxEVT_COMMAND_CHECKBOX_CLICKED, (wxObjectEventFunction)&EffectsGridSettingsPanel::OnColorUpdateWarnCheckBoxClick);
@@ -156,6 +164,7 @@ bool EffectsGridSettingsPanel::TransferDataToWindow() {
     NodeValuesCheckBox->SetValue(frame->GridNodeValues());
     IconBackgroundsCheckBox->SetValue(frame->GridIconBackgrounds());
     DoubleClickChoice->SetSelection(frame->TimingPlayOnDClick());
+    EffectWheelCheckBox->SetValue(frame->EffectWheelOnDClick());
     SmallWaveformCheckBox->SetValue(frame->SmallWaveform());
     SnapToTimingCheckBox->SetValue(frame->SnapToTimingMarks());
     TransistionMarksCheckBox->SetValue(!frame->IsSuppressFadeHints());
@@ -208,6 +217,7 @@ bool EffectsGridSettingsPanel::TransferDataFromWindow() {
     frame->SetGridNodeValues(NodeValuesCheckBox->IsChecked());
     frame->SetGridIconBackgrounds(IconBackgroundsCheckBox->IsChecked());
     frame->SetTimingPlayOnDClick(DoubleClickChoice->GetSelection());
+    frame->SetEffectWheelOnDClick(EffectWheelCheckBox->IsChecked());
     frame->SetSmallWaveform(SmallWaveformCheckBox->IsChecked());
     frame->SetSnapToTimingMarks(SnapToTimingCheckBox->IsChecked());
     frame->SetSuppressFadeHints(!TransistionMarksCheckBox->IsChecked());
@@ -263,6 +273,13 @@ void EffectsGridSettingsPanel::OnTransistionMarksCheckBoxClick(wxCommandEvent& e
 }
 
 void EffectsGridSettingsPanel::OnDoubleClickChoiceSelect(wxCommandEvent& event)
+{
+    if (wxPreferencesEditor::ShouldApplyChangesImmediately()) {
+        TransferDataFromWindow();
+    }
+}
+
+void EffectsGridSettingsPanel::OnEffectWheelCheckBoxClick(wxCommandEvent& event)
 {
     if (wxPreferencesEditor::ShouldApplyChangesImmediately()) {
         TransferDataFromWindow();

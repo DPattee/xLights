@@ -33,7 +33,7 @@ fine-grained — a menu entry, a dialog field, a gesture):
 | 13 Tools, diagnostics, help | 59 | 12 | 11 | 4 | 6 | Light test & Check Sequence share core engines; gaps are targeting trees, report export, crash-time capture |
 | **Total (01–13)** | **1015** | **279** | **333** | **158** | **88** | |
 
-Theme 11 additionally has 8 ➖ rows. Theme 14 (reverse parity) now has **48** 🔵 rows with a
+Theme 11 additionally has 9 ➖ rows. Theme 14 (reverse parity) now has **48** 🔵 rows with a
 14-rank desktop-adoption shortlist. Theme 15 has 143 desktop cross-OS rows with no iPad status.
 
 **Parity index:** of the 1,627 rows where an iPad status is meaningful (✅+🟡+❌), **62%** are
