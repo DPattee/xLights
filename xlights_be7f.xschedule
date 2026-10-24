@@ -199,6 +199,9 @@
   </PlayList>
   <PlayList Name="Halloween - Music Subset (Sunday)">
     <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
     <PlayListStep Name="">
@@ -233,6 +236,9 @@
     </PlayListStep>
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Joker and Thief.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
     <Schedule Name="Sunday 7pm" DOW="Sun" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Sunday 8pm" DOW="Sun" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
@@ -240,6 +246,9 @@
   </PlayList>
   <PlayList Name="Halloween - Music Subset (Monday)">
     <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
     <PlayListStep Name="">
@@ -280,6 +289,9 @@
     </PlayListStep>
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Beautiful People.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
     <Schedule Name="Monday 7pm" DOW="Mon" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Monday 8pm" DOW="Mon" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
@@ -287,6 +299,9 @@
   </PlayList>
   <PlayList Name="Halloween - Music Subset (Tuesday)">
     <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
     <PlayListStep Name="">
@@ -322,11 +337,17 @@
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Devil Went Down to Georgia.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <Schedule Name="Tuesday 7pm" DOW="Tue" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Tuesday 8pm" DOW="Tue" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Tuesday 9pm" DOW="Tue" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
   </PlayList>
   <PlayList Name="Halloween - Music Subset (Wednesday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
@@ -369,11 +390,17 @@
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Grim Grinning Ghosts.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <Schedule Name="Wednesday 7pm" DOW="Wed" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Wednesday 8pm" DOW="Wed" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Wednesday 9pm" DOW="Wed" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
   </PlayList>
   <PlayList Name="Halloween - Music Subset (Thursday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
@@ -416,11 +443,17 @@
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dragula.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <Schedule Name="Thursday 7pm" DOW="Thu" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Thursday 8pm" DOW="Thu" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Thursday 9pm" DOW="Thu" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
   </PlayList>
   <PlayList Name="Halloween - Music Subset (Friday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
@@ -463,11 +496,17 @@
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Nox Arcana Masque.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <Schedule Name="Friday 7pm" DOW="Fri" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Friday 8pm" DOW="Fri" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Friday 9pm" DOW="Fri" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
   </PlayList>
   <PlayList Name="Halloween - Music Subset (Saturday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
@@ -503,6 +542,9 @@
     </PlayListStep>
     <PlayListStep Name="">
       <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Devil Went Down to Georgia.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
     </PlayListStep>
     <Schedule Name="Saturday 7pm" DOW="Sat" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
     <Schedule Name="Saturday 8pm" DOW="Sat" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
