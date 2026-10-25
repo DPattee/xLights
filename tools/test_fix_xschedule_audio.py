@@ -268,6 +268,39 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(results[0].old_audio, stale)
         self.assertEqual(Path(results[0].new_audio), self.audio.resolve())
 
+    def test_self_closing_slash_stays_after_the_new_attribute(self):
+        audio = self.show / "Stranger Things Intro.mp4"
+        audio.write_bytes(b"mp4")
+        fseq = self.show / "Stranger Things Intro.fseq"
+        fseq.write_bytes(build_fseq(str(audio)))
+        write_schedule(
+            self.show,
+            "  <PLIFSEQ "
+            f'FSEQFile="{fseq}" AudioDevice="" ApplyMethod="0" '
+            'StartChannel="1" Channels="0" Delay="0" Name=""/>',
+        )
+        self._run(write=True)
+        text = (self.show / "xlights.xschedule").read_text(encoding="utf-8")
+        self.assertNotIn('"/ AudioFile', text)
+        self.assertIn(f'Name="" AudioFile="{audio.resolve()}"/>', text)
+
+    def test_repairs_audio_file_inserted_before_the_closing_slash(self):
+        audio = self.show / "Stranger Things Intro.mp4"
+        audio.write_bytes(b"mp4")
+        write_schedule(
+            self.show,
+            "  <PLIFSEQ "
+            'FSEQFile="C:\\Users\\x-caiver\\Dropbox\\Show\\Intro.fseq" '
+            'AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" '
+            f'Delay="0" Name=""/ AudioFile="{audio}">',
+        )
+        results, backup = self._run(write=True)
+        text = (self.show / "xlights.xschedule").read_text(encoding="utf-8")
+        self.assertNotIn('"/ AudioFile', text)
+        self.assertIn(f'Name="" AudioFile="{audio}"/>', text)
+        self.assertEqual(results[0].status, "update")
+        self.assertIsNotNone(backup)
+
     def test_dry_run_does_not_write(self):
         fseq = self.show / "song.fseq"
         fseq.write_bytes(build_fseq(f"{MAC}/music/song.mp3"))

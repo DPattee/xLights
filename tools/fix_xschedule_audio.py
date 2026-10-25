@@ -34,7 +34,9 @@ _DROPBOX_PREFIX = re.compile(
     r"Dropbox(?: \([^)]+\)|-[^/]+)?/",
     re.IGNORECASE,
 )
-_ITEM_TAG = re.compile(r"<(" + "|".join(ITEM_TAGS) + r")\b([^<>]*)(/?)>")
+# The slash of a self-closing "/>" must stay out of the attribute text. A greedy
+# match swallows it, and AudioFile was then inserted between that slash and ">".
+_ITEM_TAG = re.compile(r"<(" + "|".join(ITEM_TAGS) + r")\b([^<>]*?)(/?)>")
 _ATTR = re.compile(r"""([A-Za-z_][\w.-]*)\s*=\s*(["'])(.*?)\2""", re.DOTALL)
 
 
@@ -354,6 +356,31 @@ def find_audio(fseq_path: Path, finder: Finder) -> ResolveResult:
     return audio_by_stem(fseq_path, finder)
 
 
+def _detach_unquoted_slash(inner: str) -> tuple[str, bool]:
+    """Drop a self-closing slash that an earlier run left among the attributes.
+
+    Slashes inside quoted paths are kept. The return is (attributes, had_slash).
+    """
+    kept: list[str] = []
+    quote = ""
+    found = False
+    for char in inner:
+        if quote:
+            kept.append(char)
+            if char == quote:
+                quote = ""
+            continue
+        if char in ('"', "'"):
+            quote = char
+            kept.append(char)
+            continue
+        if char == "/":
+            found = True
+            continue
+        kept.append(char)
+    return "".join(kept), found
+
+
 def _parse_attrs(inner: str) -> dict[str, str]:
     attrs: dict[str, str] = {}
     for match in _ATTR.finditer(inner):
@@ -398,21 +425,30 @@ def apply_schedule(xml_text: str, finder: Finder) -> tuple[str, list[ItemResult]
     for match in _ITEM_TAG.finditer(xml_text):
         pieces.append(xml_text[cursor:match.start()])
         name = match.group(1)
-        inner = match.group(2)
-        slash = match.group(3)
+        inner, stray_slash = _detach_unquoted_slash(match.group(2))
+        slash = "/" if stray_slash or match.group(3) == "/" else ""
         attrs = _parse_attrs(inner)
         old_audio = attrs.get("AudioFile", "")
         fseq_stored = attrs.get("FSEQFile", "")
         label = _fseq_label(fseq_stored, None)
         result = ItemResult(fseq_name=label, old_audio=old_audio, status="not_found")
 
+        def emit(attribute_text: str) -> str:
+            return f"<{name}{attribute_text}{slash}>"
+
         # A stale override must not count as present just because some other
         # file shares its name. Only a path that exists as stored is kept.
+        # A slash left in front of AudioFile still has to be moved back to "/>".
         if old_audio and resolve_stored_path(old_audio, finder, filename_fallback=False).path is not None:
-            result.status = "unchanged"
-            result.new_audio = old_audio
+            if stray_slash:
+                result.status = "update"
+                result.new_audio = old_audio
+                pieces.append(emit(inner))
+            else:
+                result.status = "unchanged"
+                result.new_audio = old_audio
+                pieces.append(match.group(0))
             results.append(result)
-            pieces.append(match.group(0))
             cursor = match.end()
             continue
 
@@ -425,7 +461,7 @@ def apply_schedule(xml_text: str, finder: Finder) -> tuple[str, list[ItemResult]
             else:
                 result.status = "no_fseq"
             results.append(result)
-            pieces.append(match.group(0))
+            pieces.append(match.group(0) if not stray_slash else emit(inner))
             cursor = match.end()
             continue
 
@@ -442,7 +478,7 @@ def apply_schedule(xml_text: str, finder: Finder) -> tuple[str, list[ItemResult]
         else:
             result.status = "not_found"
         results.append(result)
-        pieces.append(f"<{name}{inner}{slash}>")
+        pieces.append(emit(inner) if result.status == "update" or stray_slash else match.group(0))
         cursor = match.end()
     pieces.append(xml_text[cursor:])
     return "".join(pieces), results
