@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xSchedule>
+  <Options AudioDevice="" InputAudioDevice="" WWWRoot="xScheduleWeb" CrashBehaviour="Silently exit after sending crash log" MIDITimecodeDevice="" MIDITimecodeFormat="0" MIDITimecodeOffset="0" Password="" DefaultPage="index.html" AllowUnauth="FALSE" City="Seattle" RemoteLatency="0" RemoteAcceptableJitter="20" SMPTEMode="3" SMPTEDevice="" DefaultVideoSize="100|100" DefaultVideoPos="0|0" Sync="TRUE" AdvancedMode="TRUE" LateStartingScheduleUsesTime="TRUE" HardwareAcceleratedVideo="TRUE" ParallelTransmission="TRUE" SuppressAudioOnRemotes="TRUE" KeepScreenOn="FALSE" MinimiseUIUpdates="FALSE" WebServerPort="80" PasswordTimeout="30" ARTNetTimeCodeFormat="1">
+    <Button Label="Play Selected" Command="Play selected playlist" Parameters="" Hotkey="~" Color="green"/>
+    <Button Label="Stop All" Command="Stop all now" Parameters="" Hotkey="~" Color="red"/>
+    <Button Label="Reset All Schedules" Command="Restart all schedules" Parameters="" Hotkey="~" Color="default"/>
+    <Button Label="Next Step" Command="Next step in current playlist" Parameters="" Hotkey="~" Color="default"/>
+    <Button Label="End Gracefully" Command="Jump to play once at end at end of current step and then stop" Parameters="" Hotkey="~" Color="red"/>
+    <Button Label="Add 10 Mins To Schedule" Command="Add to the current schedule n minutes" Parameters="10" Hotkey="~" Color="default"/>
+    <Events/>
+    <OSC MasterPath="/Timecode/%STEPNAME%" RemotePath="/Timecode/%STEPNAME%" IP="255.255.255.255" Time="Seconds (float)" Frame="Default (int)" ServerPort="9000" ClientPort="9000" TimeBased="True"/>
+    <Test Mode="Alternate" Level1="255" Level2="0" Interval="500"/>
+  </Options>
+  <PlayList Name="Blank Playlist">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights\Blank Sequence.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Blank - Needed for BGLights - Update times when changing other schedule times" DOW="MonTueWedThuFriSatSun" StartDate="2017-01-01" EndDate="2099-01-01" StartTime="00:00:00" EndTime="23:59:00" Priority="1" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Loop="TRUE" Loops="0"/>
+  </PlayList>
+  <PlayList AlwaysShuffle="TRUE" Name="Christmas">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\AC Props All On.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\Blue.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\Red Green.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\Blue.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\Red Green.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\Blue.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\CandyCanes.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Xmas - Just Night" DOW="MonTueWedThuFriSatSun" StartDate="2023-11-29" EndDate="2023-12-28" StartTime="17:00:00" EndTime="08:00:00" Priority="8" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Loop="TRUE" Loops="0" Random="TRUE" EveryYear="TRUE"/>
+    <Schedule Name="Xmas - All Day" DOW="MonTueWedThuFriSatSun" StartDate="2023-11-29" EndDate="2023-12-28" StartTime="12:00:00" EndTime="11:45:00" Priority="8" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Loop="TRUE" Loops="0" Random="TRUE" Enabled="TRUE" EveryYear="TRUE"/>
+  </PlayList>
+  <PlayList AlwaysShuffle="TRUE" Name="Halloween - Simple Animations">
+    <PlayListStep Name="ALL OFF - START" ExcludeRandom="TRUE">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\All-Off.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name="" Priority="1"/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Butteryflies.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\ColorShiftingWaves.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Green and Purple 1.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Green Fades.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\GreenSpiralVideo.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Lighthouse - Green.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Lighthouse - Purple Orange.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple 1.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple Butterfly.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple Orange Spirals 2.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple Orange Spirals.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\PurpleFades.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\RainbowPulse.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\WireFrameGrid.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Green and Purple 1.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Green Fades.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Lighthouse - Green.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Lighthouse - Purple Orange.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple 1.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple Butterfly.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple Orange Spirals 2.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\Purple Orange Spirals.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Simple Animations\PurpleFades.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="ALL OFF - END" ExcludeRandom="TRUE">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\All-Off.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name="" Priority="1"/>
+    </PlayListStep>
+    <Schedule Name="Halloween - Evenings" DOW="MonTueWedThuFriSatSun" StartDate="2024-10-01" EndDate="2024-11-15" StartTime="17:30:00" EndTime="01:30:00" Priority="5" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Loop="TRUE" Loops="0" Enabled="TRUE" EveryYear="TRUE"/>
+    <Schedule Name="Halloween - Mornings" DOW="MonTueWedThuFriSatSun" StartDate="2024-10-01" EndDate="2024-11-15" StartTime="05:30:00" EndTime="08:00:00" Priority="5" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Loop="TRUE" Loops="0" Enabled="TRUE" EveryYear="TRUE"/>
+  </PlayList>
+  <PlayList Name="Halloween - All Off">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\All-Off.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name="" Priority="1"/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\All-Off.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name="" Priority="1"/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\All-Off.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name="" Priority="1"/>
+    </PlayListStep>
+    <Schedule Name="Morning" DOW="MonTueWedThuFriSatSun" StartDate="2017-01-01" EndDate="2099-01-01" StartTime="08:05:00" EndTime="08:45:00" Priority="5" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Afternoon" DOW="MonTueWedThuFriSatSun" StartDate="2017-01-01" EndDate="2099-01-01" StartTime="16:00:00" EndTime="16:10:00" Priority="5" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once"/>
+  </PlayList>
+  <PlayList Name="Christmas - All Off">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\ALL OFF.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\ALL OFF.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\xcaiver\Dropbox\LightShows\Xlights 2025 Christmas\Holidays\Christmas\ALL OFF.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Morning" DOW="MonTueWedThuFriSatSun" StartDate="2017-01-01" EndDate="2099-01-01" StartTime="09:00:00" EndTime="09:10:00" Priority="5" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Loop="TRUE" Loops="0"/>
+    <Schedule Name="Evening" DOW="MonTueWedThuFriSatSun" StartDate="2017-01-01" EndDate="2099-01-01" StartTime="16:00:00" EndTime="16:10:00" Priority="5" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Loop="TRUE" Loops="0"/>
+  </PlayList>
+  <PlayList Name="Reference - Halloween - All Music">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Xbox Dream Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Stranger Things Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Beautiful People.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dead Dance.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Devil Went Down to Georgia.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dragula.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Grim Grinning Ghosts.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Hells Bells.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Joker and Thief.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Monster Mash.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Nox Arcana Masque.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Spooky Skeletons.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\The Circus - Dark Carnival.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\This Is Halloween.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Thriller.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+  </PlayList>
+  <PlayList Name="Halloween - Music Subset (Sunday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Xbox Dream Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Thriller-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Thriller.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\BeautifulPeople-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Beautiful People.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DeadDance-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dead Dance.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Dragula-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dragula.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\JokerAndTheThief-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Joker and Thief.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Sunday 7pm" DOW="Sun" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Sunday 8pm" DOW="Sun" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Sunday 9pm" DOW="Sun" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+  </PlayList>
+  <PlayList Name="Halloween - Music Subset (Monday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Stranger Things Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MasqueOfTheRedDeath-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Nox Arcana Masque.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\ThisIsHalloween-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\This Is Halloween.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\HellsBells-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Hells Bells.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DarkCarnival-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\The Circus - Dark Carnival.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\GrimGrinningGhosts-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Grim Grinning Ghosts.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\BeautifulPeople-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Beautiful People.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Monday 7pm" DOW="Mon" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Monday 8pm" DOW="Mon" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Monday 9pm" DOW="Mon" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+  </PlayList>
+  <PlayList Name="Halloween - Music Subset (Tuesday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Xbox Dream Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\ThisIsHalloween-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\This Is Halloween.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Thriller-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Thriller.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MonsterMash-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Monster Mash.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\GrimGrinningGhosts-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Grim Grinning Ghosts.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DevilWentDownToGeorgia-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Devil Went Down to Georgia.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Tuesday 7pm" DOW="Tue" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Tuesday 8pm" DOW="Tue" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Tuesday 9pm" DOW="Tue" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+  </PlayList>
+  <PlayList Name="Halloween - Music Subset (Wednesday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Stranger Things Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DevilWentDownToGeorgia-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Devil Went Down to Georgia.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\BeautifulPeople-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Beautiful People.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DeadDance-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dead Dance.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Dragula-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dragula.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SpookyScarySkeletons-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Spooky Skeletons.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\GrimGrinningGhosts-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Grim Grinning Ghosts.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Wednesday 7pm" DOW="Wed" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Wednesday 8pm" DOW="Wed" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Wednesday 9pm" DOW="Wed" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+  </PlayList>
+  <PlayList Name="Halloween - Music Subset (Thursday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Xbox Dream Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\JokerAndTheThief-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Joker and Thief.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\HellsBells-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Hells Bells.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DarkCarnival-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\The Circus - Dark Carnival.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MonsterMash-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Monster Mash.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SpookyScarySkeletons-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Spooky Skeletons.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Dragula-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dragula.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Thursday 7pm" DOW="Thu" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Thursday 8pm" DOW="Thu" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Thursday 9pm" DOW="Thu" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+  </PlayList>
+  <PlayList Name="Halloween - Music Subset (Friday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Stranger Things Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DarkCarnival-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\The Circus - Dark Carnival.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\JokerAndTheThief-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Joker and Thief.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SpookyScarySkeletons-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Spooky Skeletons.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Thriller-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Thriller.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\ThisIsHalloween-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\This Is Halloween.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MasqueOfTheRedDeath-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Nox Arcana Masque.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Friday 7pm" DOW="Fri" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Friday 8pm" DOW="Fri" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Friday 9pm" DOW="Fri" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+  </PlayList>
+  <PlayList Name="Halloween - Music Subset (Saturday)">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Welcome To The Show (Halloween).fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Xbox Dream Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DeadDance-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Dead Dance.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MonsterMash-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Monster Mash.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\HellsBells-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Hells Bells.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MasqueOfTheRedDeath-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Nox Arcana Masque.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DevilWentDownToGeorgia-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Musical Sequences\Devil Went Down to Georgia.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <Schedule Name="Saturday 7pm" DOW="Sat" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="19:00:00" EndTime="19:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Saturday 8pm" DOW="Sat" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="20:00:00" EndTime="20:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+    <Schedule Name="Saturday 9pm" DOW="Sat" StartDate="2026-10-01" EndDate="2026-11-15" StartTime="21:00:00" EndTime="21:40:00" Priority="10" NthDay="1" NthDayOffset="0" OnOffsetMins="0" OffOffsetMins="0" FireFrequency="Fire once" Enabled="TRUE"/>
+  </PlayList>
+  <PlayList Name="Background - TuneTo">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\TuneTo-Standard.fseq" AudioDevice="" ApplyMethod="6" StartChannel="1" Channels="0" Delay="0" Name="" Priority="1"/>
+    </PlayListStep>
+  </PlayList>
+  <PlayList Name="Reference- Halloween - All Intros">
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\BeautifulPeople-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\BringMeToLife-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\BurningDownTheHouse-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DarkCarnival-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DeadDance-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DevilWentDownToGeorgia-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\DontFearTheReaper-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Dragula-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\GirlsJustWantToHaveFun-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\GrimGrinningGhosts-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\HellsBells-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\ImperialMarch-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Intro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\JokerAndTheThief-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MasqueOfTheRedDeath-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\MonsterMash-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\OurHouse-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Outro-Announcement.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\RedLightGreenLight-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SeparateWays-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Skrillex-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SomebodysWatchingMe-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SomethingInTheWay-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SomewhereOverTheRainbow-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SoundOfSilence-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\SpookyScarySkeletons-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\ThisIsHalloween-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+    <PlayListStep Name="">
+      <PLIFSEQ FSEQFile="C:\Users\x-caiver\Dropbox\LightShows\Xlights 2026 Base\Sequences\Intros\Thriller-Intro.fseq" AudioDevice="" ApplyMethod="0" StartChannel="1" Channels="0" Delay="0" Name=""/>
+    </PlayListStep>
+  </PlayList>
+  <Background PlayList="Background - TuneTo"/>
+</xSchedule>
