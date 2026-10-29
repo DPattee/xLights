@@ -8,6 +8,7 @@
  * License: https://github.com/xLightsSequencer/xLights/blob/master/License.txt
  **************************************************************/
 
+#include <algorithm>
 #include <atomic>
 #include <filesystem>
 #include <map>
@@ -320,8 +321,16 @@ void xLightsFrame::InitSequencer()
         return;
     }
 
-    // if we have a saved perspective on this machine then make that the current one
-    if (_autoSavePerspecive) {
+    // A perspective loaded on this computer is stored in local settings, not in
+    // the shared show file, so it wins over both the show's "current" perspective
+    // and the auto-saved window snapshot.
+    std::string savedPerspective = SelectedPerspectiveOnThisComputer();
+    bool machineSelection = mCurrentPerpective != nullptr
+        && !savedPerspective.empty()
+        && mCurrentPerpective->name == savedPerspective;
+    if (machineSelection) {
+        DoLoadPerspective(mCurrentPerpective, false);
+    } else if (_autoSavePerspecive) {
         auto* config = GetXLightsConfig();
         wxString machinePerspective = config->Read("xLightsMachinePerspective", "");
         if (machinePerspective != "") {
@@ -338,12 +347,12 @@ void xLightsFrame::InitSequencer()
             LogPerspective(machinePerspective);
         } else {
             if (mCurrentPerpective != nullptr) {
-                DoLoadPerspective(mCurrentPerpective);
+                DoLoadPerspective(mCurrentPerpective, false);
             }
         }
     }
     else if (mCurrentPerpective != nullptr) {
-        DoLoadPerspective(mCurrentPerpective);
+        DoLoadPerspective(mCurrentPerpective, false);
     }
 
     mSequencerInitialize = true;
@@ -3470,7 +3479,124 @@ void xLightsFrame::RestoreLayoutPerspective()
     }
 }
 
-void xLightsFrame::DoLoadPerspective(Perspective* perspective)
+// One slot per show folder. The hash is of a normalized path so a trailing
+// separator or slash direction does not fork the key; the folder name is only
+// there so a settings dump is readable. Local settings are already per computer.
+static std::string SelectedPerspectiveConfigKey(const std::string& showDir)
+{
+    std::string showPart = "default";
+    if (!showDir.empty()) {
+        std::string normalized = showDir;
+        while (normalized.size() > 1 && (normalized.back() == '/' || normalized.back() == '\\')) {
+            normalized.pop_back();
+        }
+        for (char& c : normalized) {
+            if (c == '\\') {
+                c = '/';
+            }
+#ifdef _WIN32
+            else if (c >= 'A' && c <= 'Z') {
+                c = static_cast<char>(c - 'A' + 'a');
+            }
+#endif
+        }
+        std::string bname = "root";
+        auto slash = normalized.find_last_of('/');
+        if (slash == std::string::npos) {
+            bname = normalized;
+        } else if (slash + 1 < normalized.size()) {
+            bname = normalized.substr(slash + 1);
+        }
+        if (bname.empty()) {
+            bname = "root";
+        }
+        showPart = bname + "_" + fmt::format("{:08x}", fnv1a(normalized));
+    }
+    std::string key = "xLightsSelectedPerspective_" + showPart;
+    for (char& c : key) {
+        if (c == ':' || c == '/' || c == '\\' || c == '.' || c == ' ') {
+            c = '_';
+        }
+    }
+    return key;
+}
+
+std::string xLightsFrame::SelectedPerspectiveOnThisComputer() const
+{
+    return GetXLightsConfig()->Read(SelectedPerspectiveConfigKey(GetShowDirectory()), "");
+}
+
+void xLightsFrame::RememberSelectedPerspectiveOnThisComputer(const std::string& name)
+{
+    auto* config = GetXLightsConfig();
+    std::string key = SelectedPerspectiveConfigKey(GetShowDirectory());
+    if (name.empty()) {
+        config->DeleteEntry(key);
+    } else {
+        config->Write(key, name);
+    }
+    config->Flush();
+    spdlog::debug("Remembered perspective '{}' for this computer.", name);
+}
+
+void xLightsFrame::ApplyPerComputerPerspectiveSelection()
+{
+    std::string saved = SelectedPerspectiveOnThisComputer();
+    if (saved.empty()) {
+        return;
+    }
+    for (auto& p : _perspectives) {
+        if (!p.name.empty() && p.name == saved) {
+            mCurrentPerpective = &p;
+            spdlog::debug("Using per-computer perspective '{}'.", saved);
+            return;
+        }
+    }
+}
+
+void xLightsFrame::NotePerspectiveRenamed(const std::string& oldName, const std::string& newName)
+{
+    if (_currentPerspectiveName == oldName) {
+        _currentPerspectiveName = newName;
+    }
+    if (SelectedPerspectiveOnThisComputer() == oldName) {
+        RememberSelectedPerspectiveOnThisComputer(newName);
+    }
+}
+
+void xLightsFrame::DeletePerspective(Perspective* perspective)
+{
+    if (perspective == nullptr) {
+        return;
+    }
+    std::string name = perspective->name;
+    std::string keep;
+    if (mCurrentPerpective != nullptr && mCurrentPerpective != perspective) {
+        keep = mCurrentPerpective->name;
+    }
+    auto it = std::find_if(_perspectives.begin(), _perspectives.end(),
+                           [&](const Perspective& p) { return &p == perspective; });
+    if (it != _perspectives.end()) {
+        _perspectives.erase(it);
+    }
+    mCurrentPerpective = nullptr;
+    if (!keep.empty()) {
+        for (auto& p : _perspectives) {
+            if (p.name == keep) {
+                mCurrentPerpective = &p;
+                break;
+            }
+        }
+    }
+    if (_currentPerspectiveName == name) {
+        _currentPerspectiveName.clear();
+    }
+    if (SelectedPerspectiveOnThisComputer() == name) {
+        RememberSelectedPerspectiveOnThisComputer("");
+    }
+}
+
+void xLightsFrame::DoLoadPerspective(Perspective* perspective, bool userSelected)
 {
 
     if (perspective == nullptr) {
@@ -3482,10 +3608,12 @@ void xLightsFrame::DoLoadPerspective(Perspective* perspective)
     wxString settings;
     wxString layoutSettings;
     SplitPerspectiveSettings(perspective->settings, settings, layoutSettings);
-    if (name.ToStdString() != _currentPerspectiveName) {
+    mCurrentPerpective = perspective;
+    // Only an explicit load updates the show file. Opening the show must not
+    // mark it dirty because this computer's perspective differs from the shared one.
+    if (userSelected && name.ToStdString() != _currentPerspectiveName) {
         _currentPerspectiveName = name.ToStdString();
         UnsavedRgbEffectsChanges = true;
-        mCurrentPerpective = perspective;
     }
     if (settings.size() == 0) {
         SyncFloatingPanePositions();
@@ -3599,6 +3727,9 @@ void xLightsFrame::DoLoadPerspective(Perspective* perspective)
             MenuItemPerspectives->Check(perspectives[i].id, perspectives[i].p == perspective);
         }
     }
+    if (userSelected) {
+        RememberSelectedPerspectiveOnThisComputer(name.ToStdString());
+    }
     UpdateLayoutSave();
     UpdateViewMenu();
 }
@@ -3606,8 +3737,7 @@ void xLightsFrame::DoLoadPerspective(Perspective* perspective)
 void xLightsFrame::LoadPerspective(wxCommandEvent& event)
 {
     Perspective* perspective = (Perspective*)(event.GetClientData());
-    mCurrentPerpective = perspective;
-    DoLoadPerspective(mCurrentPerpective);
+    DoLoadPerspective(perspective, true);
 }
 
 void xLightsFrame::OnMenuItemViewSavePerspectiveSelected(wxCommandEvent& event)
@@ -3654,7 +3784,7 @@ void xLightsFrame::OnMenuItemViewSaveAsPerspectiveSelected(wxCommandEvent& event
         mCurrentPerpective = &_perspectives.back();
         OnMenuItemViewSavePerspectiveSelected(event);
         PerspectivesChanged(event);
-        DoLoadPerspective(mCurrentPerpective);
+        DoLoadPerspective(mCurrentPerpective, true);
         wxCommandEvent eventPerspectivesChanged(EVT_PERSPECTIVES_CHANGED);
         wxPostEvent(this, eventPerspectivesChanged);
     }

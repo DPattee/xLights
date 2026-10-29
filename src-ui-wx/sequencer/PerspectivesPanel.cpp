@@ -145,10 +145,9 @@ void PerspectivesPanel::OnButtonRenamePerspectiveClick(wxCommandEvent& event)
             wxString name = wxGetTextFromUser("Enter new name for perspective","Rename Perspective ");
             if (name.size() > 0 && !CheckForDuplicates(name))
             {
-                if (p->name == _frame->_currentPerspectiveName) {
-                    _frame->_currentPerspectiveName = name.ToStdString();
-                }
+                std::string oldName = p->name;
                 p->name = name.ToStdString();
+                _frame->NotePerspectiveRenamed(oldName, p->name);
                 ListBoxPerspectives->SetString(selection_index, name);
 
                 wxCommandEvent eventPerspectivesChanged(EVT_PERSPECTIVES_CHANGED);
@@ -166,11 +165,8 @@ void PerspectivesPanel::OnButtonDeletePerspectiveClick(wxCommandEvent& event)
         xLightsFrame::Perspective* p = (xLightsFrame::Perspective*)(ListBoxPerspectives->GetClientData(selection_index));
         if (p != nullptr)
         {
-            // Remove from the vector
-            auto& pv = _frame->_perspectives;
-            pv.erase(std::remove_if(pv.begin(), pv.end(),
-                [&](const xLightsFrame::Perspective& ep) { return &ep == p; }), pv.end());
-            ListBoxPerspectives->Delete(selection_index);
+            _frame->DeletePerspective(p);
+            SetPerspectives(_frame);
         }
         wxCommandEvent eventPerspectives(EVT_PERSPECTIVES_CHANGED);
         wxPostEvent(GetParent(), eventPerspectives);

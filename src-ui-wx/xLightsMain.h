@@ -1942,6 +1942,9 @@ public:
     void SetUsedRuler() { _usedRuler = true; }
     bool UsedRuler() { return _usedRuler; }
 
+    void NotePerspectiveRenamed(const std::string& oldName, const std::string& newName);
+    void DeletePerspective(Perspective* perspective);
+
 private:
 
     int _acParm1Intensity;
@@ -2053,7 +2056,10 @@ private:
     void ResizeAndMakeEffectsScroll();
     void ResizeMainSequencer();
     void LoadSequencer(SequenceFile& xml_file, pugi::xml_document& doc);
-    void DoLoadPerspective(Perspective* p);
+    void DoLoadPerspective(Perspective* p, bool userSelected = false);
+    void RememberSelectedPerspectiveOnThisComputer(const std::string& name);
+    std::string SelectedPerspectiveOnThisComputer() const;
+    void ApplyPerComputerPerspectiveSelection();
     wxString SaveSequencerPerspective();
     wxString BuildPerspectiveSettings();
     static void SplitPerspectiveSettings(const wxString& combined, wxString& sequencer, wxString& layout);
