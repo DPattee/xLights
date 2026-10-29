@@ -366,7 +366,8 @@ void EffectsGrid::mouseLeftDClick(wxMouseEvent& event) {
             return;
         }
 
-        // Double-clicked on empty cell -> show the circular effect wheel!
+        // Double-clicked on an empty cell. Resolve a drop range, then open the
+        // radial effect wheel when that preference is on.
         int startTime = selectedTimeMS;
         int endTime = selectedTimeMS + 1000; // default 1 second
 
@@ -403,30 +404,32 @@ void EffectsGrid::mouseLeftDClick(wxMouseEvent& event) {
             }
         }
 
-        // D. Fetch sequencer-scoped EFFECT keybindings, limit to 72 (paginated
-        // 18 per page by EffectWheelDialog)
-        std::vector<const KeyBinding*> effectBindings;
-        MainSequencer* ms = dynamic_cast<MainSequencer*>(mParent);
-        if (ms != nullptr) {
-            for (const auto& kb : ms->keyBindings.GetBindings()) {
-                if (!kb.IsDisabled() && kb.GetType() == "EFFECT" && kb.InScope(KBSCOPE::Sequence)) {
-                    effectBindings.push_back(&kb);
-                    if (effectBindings.size() >= 72) {
-                        break;
+        bool effectDropped = false;
+        if (mEffectWheelOnDClick && endTime > startTime && !xlights->IsACActive()) {
+            // D. Fetch sequencer-scoped EFFECT keybindings, limit to 72 (paginated
+            // 18 per page by EffectWheelDialog)
+            std::vector<const KeyBinding*> effectBindings;
+            MainSequencer* ms = dynamic_cast<MainSequencer*>(mParent);
+            if (ms != nullptr) {
+                for (const auto& kb : ms->keyBindings.GetBindings()) {
+                    if (!kb.IsDisabled() && kb.GetType() == "EFFECT" && kb.InScope(KBSCOPE::Sequence)) {
+                        effectBindings.push_back(&kb);
+                        if (effectBindings.size() >= 72) {
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        bool effectDropped = false;
-        if (endTime > startTime && !effectBindings.empty() && !xlights->IsACActive()) {
-            EffectWheelDialog dlg(this, effectBindings);
-            dlg.PositionAtMouse(ClientToScreen(event.GetPosition()));
-            if (dlg.ShowModal() == wxID_OK) {
-                const KeyBinding* selectedKb = dlg.GetSelectedKeyBinding();
-                if (selectedKb != nullptr) {
-                    DropEffectAt(row, selectedKb->GetEffectName(), selectedKb->GetEffectString(), selectedKb->GetEffectDataVersion(), startTime, endTime);
-                    effectDropped = true;
+            if (!effectBindings.empty()) {
+                EffectWheelDialog dlg(this, effectBindings);
+                dlg.PositionAtMouse(ClientToScreen(event.GetPosition()));
+                if (dlg.ShowModal() == wxID_OK) {
+                    const KeyBinding* selectedKb = dlg.GetSelectedKeyBinding();
+                    if (selectedKb != nullptr) {
+                        DropEffectAt(row, selectedKb->GetEffectName(), selectedKb->GetEffectString(), selectedKb->GetEffectDataVersion(), startTime, endTime);
+                        effectDropped = true;
+                    }
                 }
             }
         }

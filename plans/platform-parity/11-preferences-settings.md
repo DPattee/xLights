@@ -52,7 +52,8 @@ iPad scope: there is **no** Preferences/Settings screen or menu item. `FolderCon
 | 28 | Hide Color Update Warning | `EffectsGridSettingsPanel.cpp:106`; `:162`/`:213` → `xLightsMain.cpp:1826` | ✅ | `SequencerGridV2View.swift:481` key `hideColorUpdateWarning`, Toggle `:1978`; also `ColorPaletteView.swift:26`, read `:115` |
 | 29 | Show Alternate Timing Format (seconds + ms) | `EffectsGridSettingsPanel.cpp:111`; `:164`/`:215` → `xLightsMain.cpp:1895` | ✅ | `SequencerGridV2View.swift:476` key `grid.alternateTimingFormat`, Toggle `:1975`; consumed `TopChromeMetalGridView.swift:71`, `:109`, `:212` |
 | 30 | Bell on render completion or error | `EffectsGridSettingsPanel.cpp:117`; `:165`/`:216` → `xLightsMain.cpp:1589` | ✅ | `FolderConfigView.swift:56` key `bellOnRenderComplete`, Toggle `:286`; consumed `SequencerViewModel.swift:3091` |
-| 31 | Paste As (Relative / Layers) | `EffectsGridSettingsPanel.cpp:124-126`; `:166`/`:217` → `xLightsMain.cpp:1592` | 🟡 | iPad has a Paste Mode preference but on a **different axis**: `SequencerGridV2View.swift:470` key `pasteByCell`, Picker `:1961` ("By Time" / "By Cell"), applied `SequencerViewModel.swift:7815-7816`. Desktop's relative-vs-preserve-layer-structure choice (`Relative` / `Layers`, tooltip `EffectsGridSettingsPanel.cpp:127`) has no iPad equivalent. The iPad key's real desktop counterpart is the **Edit-toolbar** "Paste By Cell" check-tool (`xLightsMain.cpp:827`, handler `:4179-4192` → `MainSequencer::SetPasteByCell`), which is not a preference at all |
+| 31 | Paste As (Relative / Layers) | `EffectsGridSettingsPanel.cpp:131-133`; `:175`/`:228` → `xLightsMain.cpp:1592` | 🟡 | iPad has a Paste Mode preference but on a **different axis**: `SequencerGridV2View.swift:470` key `pasteByCell`, Picker `:1961` ("By Time" / "By Cell"), applied `SequencerViewModel.swift:7815-7816`. Desktop's relative-vs-preserve-layer-structure choice (`Relative` / `Layers`, tooltip `EffectsGridSettingsPanel.cpp:134`) has no iPad equivalent. The iPad key's real desktop counterpart is the **Edit-toolbar** "Paste By Cell" check-tool (`xLightsMain.cpp:827`, handler `:4179-4192` → `MainSequencer::SetPasteByCell`), which is not a preference at all |
+| 114 | Effect Wheel on Double-Click | `EffectsGridSettingsPanel.cpp:96-98` (default on); get/set `:167`/`:220` → `xLightsMain.cpp:1955` (`xLightsEffectWheelOnDClick`), setter `:6924`; consumed `EffectsGrid.cpp:408` | ➖ | iPad has no radial effect wheel to disable. Empty-cell double-tap places an already-armed palette effect or does nothing (`SequencerViewModel.swift:7198` `doubleTapCreateInCell`). The picker gap itself is theme 02 row 38 |
 
 ### Page: Sequences (`src-ui-wx/preferences/SequenceFileSettingsPanel.cpp`)
 
@@ -219,7 +220,7 @@ iPad model: a fixed `.keyboardShortcut` set declared inline in `src-iPad/App/XLi
 
 ## Notes
 
-**Status counts (113 rows):** ✅ 33 · 🟡 19 · ❌ 51 · 🚫 0 · 🔵 2 · ➖ 8.
+**Status counts (114 rows):** ✅ 33 · 🟡 19 · ❌ 51 · 🚫 0 · 🔵 2 · ➖ 9.
 
 **Structural observations**
 
