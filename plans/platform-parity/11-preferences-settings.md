@@ -149,9 +149,9 @@ Layout persists as JSON under key `EffectsToolbarLayout` (`src-ui-wx/preferences
 
 | # | Page / Setting | Desktop evidence | iPad status | iPad evidence / gap |
 |---|---|---|---|---|
-| 87 | Effects toolbar — per-effect visibility toggle | `ToolbarsSettingsPanel.cpp:53` (toggle column), read `:207` | ❌ | grep `toolbarLayout`, `effects toolbar`, `customizeToolbar`, `EffectsToolbarLayout` over `src-iPad/` → 0 files. The iPad effect palette (`EffectPaletteView.swift`) is a fixed list |
-| 88 | Effects toolbar — reorder (Move Up / Move Down) | `ToolbarsSettingsPanel.cpp:64-67`; `MoveSelectedRow` `:163-187` | ❌ | Same search as row 87 — no reorder affordance |
-| 89 | Effects toolbar — Reset to Defaults | `ToolbarsSettingsPanel.cpp:72-74`; `:128-134`, defaults `:115-126` | ❌ | Same search as row 87 |
+| 87 | Effects toolbar — per-effect visibility toggle | `ToolbarsSettingsPanel.cpp:72-76` (toggle column, sized to a native checkbox), read `:233` | ❌ | grep `toolbarLayout`, `effects toolbar`, `customizeToolbar`, `EffectsToolbarLayout` over `src-iPad/` → 0 files. The iPad effect palette (`EffectPaletteView.swift`) is a fixed list |
+| 88 | Effects toolbar — reorder (Move Up / Move Down) | `ToolbarsSettingsPanel.cpp:92-93`; `MoveSelectedRow` `:189-213` | ❌ | Same search as row 87 — no reorder affordance |
+| 89 | Effects toolbar — Reset to Defaults | `ToolbarsSettingsPanel.cpp:98-99`; `:154-160`, defaults `:141-152` | ❌ | Same search as row 87 |
 
 ### Keyboard shortcuts
 
